@@ -25,6 +25,6 @@ public class PageEntry implements Comparable<PageEntry> {
     @Override
     public int compareTo(PageEntry pageEntry) {
 
-        return pageEntry.count - count;
+        return count - pageEntry.count;
     }
 }

@@ -28,7 +28,7 @@ public class BooleanSearchEngine implements SearchEngine {
                 }
                 for (var word : freqs.keySet()) {
                     List<PageEntry> pageEntries = new ArrayList<>();
-                    if (index.containsKey(word)){
+                    if (index.containsKey(word)) {
                         pageEntries = index.get(word);
                     }
                     pageEntries.add(new PageEntry(pdfFile.getName(), i, freqs.get(word)));
@@ -36,6 +36,7 @@ public class BooleanSearchEngine implements SearchEngine {
                     index.put(word, pageEntries);
 
                 }
+                freqs.clear();
             }
         }
     }

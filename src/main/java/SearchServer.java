@@ -7,15 +7,16 @@ import java.util.List;
 
 public class SearchServer {
     private final int port;
+    private final BooleanSearchEngine engine;
 
-    public SearchServer(int port) {
+    public SearchServer(int port, BooleanSearchEngine engine) {
         this.port = port;
+        this.engine = engine;
     }
 
     public void start() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Сервекр стартовал");
-            BooleanSearchEngine engine = new BooleanSearchEngine(new File("pdfs"));
+            System.out.println("Сервер стартовал");
             while (true) {
                 try (Socket clientSocket = serverSocket.accept();
                      PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
